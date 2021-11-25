@@ -103,7 +103,7 @@ function calculateSubtotals() {
     var subtotalPriceGrocery = 0;
     var subtotalPriceBeauty = 0;
     var subtotalPriceClothes = 0;
-//Activate these line code just for exercise 2. And deactivate the following one activate it.
+//Activate these line code just for exercise 3. And deactivate the following one activate it.
 /*    for (let i = 0; i < cartList.length; i++) {
         if(cartList[i].type === "grocery"){
             var priceGrocery = cartList[i].price;
@@ -123,7 +123,7 @@ function calculateSubtotals() {
         }
     }
     console.log(subtotal, cartList);*/
-//Deactivate these line code for exercise 2. And activate for exercise 7.
+//Deactivate these line code for exercise 3. And activate for exercise 7.
     for (let i = 0; i < cart.length; i++) {
         if(cart[i].type === "grocery"){
             var priceGrocery = cart[i].price;

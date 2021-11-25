@@ -3,35 +3,41 @@ var password = document.querySelector(".password");
 var phone = document.querySelector('.phone');
 var userName = document.querySelector('.name');
 var email = document.querySelector('.email');
-var input = document.querySelector('input')
 
 // Get the error elements
 var errorPassword = document.getElementById("errorPassword");
 var errorName = document.getElementById('errorName');
 var errorPhone = document.getElementById('errorPhone');
-
+var errorEmail = document.getElementById('errorEmail');
 // Exercise 8
 function validate() {
     // Validate fields entered by the user: name, phone, password, and email
     
-    var namePattern = /^[A-Za-z]+$/;
-    if (userName.value !== namePattern || userName.value === null || userName.value.length < 3) {
+    
+    console.log(hasNumber(userName.value));
+    console.log(userName.value.length < 3);
+    if (hasNumber(userName.value) || userName.value.length < 3) {
         userName.style.borderColor = 'red';
-        console.log(errorName);
+        errorName.style.display = 'block';
     }
-    if (!isNaN(phone.value) || phone.value === null) {
+    if (!isNaN(phone.value) || phone.value.length < 3) {
         phone.style.borderColor = 'red';
-        console.log(errorPhone);
+        errorPhone.style.display = 'block';
     }
     var passwordPattern = /^[0-9a-zA-Z]+$/;
-    if (password.value !== passwordPattern || password.value === null) {
+    if (password.value !== passwordPattern || password.value.length < 3) {
         password.style.borderColor = 'red';
-        console.log(errorPassword);
+        errorPassword.style.display = 'block';
     }
-    var emailPattern= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (emailPattern.test(email) || email === "") {
+    if (!validEmail(email)) {
         email.style.borderColor = 'red';
-        console.log("Please, introduce a valid email");
+        errorEmail.style.display = 'block';
     }
-
+}
+function hasNumber(myString) {
+    return /\d/.test(myString);
+}
+function validEmail(e) {
+    var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+    return String(e).search (filter) != -1;
 }

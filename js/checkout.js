@@ -3,6 +3,7 @@ var password = document.querySelector(".password");
 var phone = document.querySelector('.phone');
 var userName = document.querySelector('.name');
 var email = document.querySelector('.email');
+var form = document.querySelector('.form');
 
 // Get the error elements
 var errorPassword = document.getElementById("errorPassword");
@@ -13,9 +14,6 @@ var errorEmail = document.getElementById('errorEmail');
 function validate() {
     // Validate fields entered by the user: name, phone, password, and email
     
-    
-    console.log(hasNumber(userName.value));
-    console.log(userName.value.length < 3);
     if (hasNumber(userName.value) || userName.value.length < 3) {
         userName.style.borderColor = 'red';
         errorName.style.display = 'block';
@@ -33,6 +31,7 @@ function validate() {
         email.style.borderColor = 'red';
         errorEmail.style.display = 'block';
     }
+    
 }
 function hasNumber(myString) {
     return /\d/.test(myString);
@@ -41,3 +40,5 @@ function validEmail(e) {
     var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
     return String(e).search (filter) != -1;
 }
+
+

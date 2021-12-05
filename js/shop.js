@@ -207,7 +207,6 @@ function addToCart(id) {
                 }
             }
             if(!found) {
-                console.log("a");
                 products[i].quantity = 1;
                 cart.push(products[i]);
             } else {
@@ -225,6 +224,18 @@ function addToCart(id) {
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+    for(let i = 0; i < cart.length; i++) {
+        if(cart[i].id === id) {
+            if(cart[i].quantity > 1) {
+                var total = parseInt(cart[i].quantity) - 1;
+                cart[i].quantity = total;
+            } else {
+                var position = cart.indexOf(i);
+                cart.splice(position, 1);
+            }
+        }
+    }
+    console.log(cart);
 }
 
 // Exercise 10

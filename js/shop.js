@@ -103,7 +103,7 @@ function calculateSubtotals() {
     var subtotalPriceGrocery = 0;
     var subtotalPriceBeauty = 0;
     var subtotalPriceClothes = 0;
-//Activate these line code just for exercise 2. And deactivate the following one activate it.
+//Activate these line code just for exercise 3. And deactivate the following one activate it.
 /*    for (let i = 0; i < cartList.length; i++) {
         if(cartList[i].type === "grocery"){
             var priceGrocery = cartList[i].price;
@@ -123,7 +123,7 @@ function calculateSubtotals() {
         }
     }
     console.log(subtotal, cartList);*/
-//Deactivate these line code for exercise 2. And activate for exercise 7.
+//Deactivate these line code for exercise 3. And activate for exercise 7.
     for (let i = 0; i < cart.length; i++) {
         if(cart[i].type === "grocery"){
             var priceGrocery = cart[i].price;
@@ -207,7 +207,6 @@ function addToCart(id) {
                 }
             }
             if(!found) {
-                console.log("a");
                 products[i].quantity = 1;
                 cart.push(products[i]);
             } else {
@@ -225,6 +224,18 @@ function addToCart(id) {
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+    for(let i = 0; i < cart.length; i++) {
+        if(cart[i].id === id) {
+            if(cart[i].quantity > 1) {
+                var total = parseInt(cart[i].quantity) - 1;
+                cart[i].quantity = total;
+            } else {
+                var position = cart.indexOf(i);
+                cart.splice(position, 1);
+            }
+        }
+    }
+    console.log(cart);
 }
 
 // Exercise 10

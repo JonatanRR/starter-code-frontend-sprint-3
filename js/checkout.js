@@ -33,6 +33,9 @@ function validate() {
     }
     
 }
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
 function hasNumber(myString) {
     return /\d/.test(myString);
 }
